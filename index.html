@@ -1,0 +1,82 @@
+To do list HTML 
+
+<ul id="todo-list"></ul>
+
+<html>
+
+  <body>
+
+    <h1>To-Do List</h1>
+
+    <form id="form">
+
+      <input type="text" id="task" placeholder="Enter a task">
+
+      <button type="submit">Add Task</button>
+
+    </form>
+
+    <ul id="tasks"></ul>
+
+    <script>
+
+      const form = document.getElementById('form');
+
+      const taskInput = document.getElementById('task');
+
+      const tasksList = document.getElementById('tasks');
+
+      
+
+      // Add a new task
+
+      form.addEventListener('submit', event => {
+
+        event.preventDefault();
+
+        const task = taskInput.value;
+
+        if (task) {
+
+          addTask(task);
+
+          taskInput.value = '';
+
+        }
+
+      });
+
+      
+
+      // Remove a task
+
+      tasksList.addEventListener('click', event => {
+
+        if (event.target.tagName === 'LI') {
+
+          event.target.remove();
+
+        }
+
+      });
+
+      
+
+      // Add a new task to the list
+
+      function addTask(task) {
+
+        const li = document.createElement('li');
+
+        li.innerText = task;
+
+        tasksList.appendChild(li);
+
+      }
+
+    </script>
+
+  </body>
+
+</html>
+
